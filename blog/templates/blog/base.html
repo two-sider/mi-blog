@@ -3,26 +3,31 @@
 
 <head>
     <title>Blog de Erick</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Gugi&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
-    <div class="page-header">
-        {% if user.is_authenticated %}
-        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-        <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
-        <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
-        {% else %}
-        <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-        {% endif %}
-        
+    <nav class="navbar navbar-dark" style="background-color: #000000c0;">
+        <a class="navbar-brand" href="/">Blog de Erick Beltrán</a>
 
-        <h1><a href="/">Blog</a></h1>
-    </div>
+            <span class="navbar-text">
+                {% if user.is_authenticated %}
+                <button class="btn btn-warning"><a href="{% url 'post_new' %}" class="top-menu">Agregar Post</a></button>
+                <button class="btn btn-warning"><a href="{% url 'post_draft_list' %}" class="top-menu">Borradores</a></button>
+                <p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Cerrar Sesión</a>)</small>
+                </p>
+                {% else %}
+                <a href="{% url 'login' %}" class="top-menu">Iniciar Sesión</a>
+                {% endif %}
+            </span>
+    </nav>
+
+
+
+
     <div class="content container">
         <div class="row">
             <div class="col-md-8">

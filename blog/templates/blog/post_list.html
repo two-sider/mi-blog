@@ -2,15 +2,18 @@
 
 {% block content %}
 {% for post in posts %}
-    <div class="post">
-        <div class="date">
+<br>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }}</a></h5>
+        <h6 class="card-subtitle mb-2 text-muted">
             <p>published: {{ post.fecha_publicacion }}</p>
-        </div>
-        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }}</a></h1>
-        <p>{{ post.texto|linebreaksbr }}</p>
-        <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
-
-
+        </h6>
+        <p class="card-text">{{ post.texto|linebreaksbr }}</p>
+        <a href="{% url 'post_detail' pk=post.pk %}" class="card-link">Comments: {{ post.approved_comments.count }}</a>
     </div>
+    
+</div>
+<br>
 {% endfor %}
 {% endblock %}

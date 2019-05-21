@@ -1,12 +1,10 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<table>
 {% for post in posts %}
-<tr><td>
 <div class="card" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }}</a></h5>
+        <h1 class="card-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }}</a></h1>
         <h6 class="card-subtitle mb-2 text-muted">
             <p>published: {{ post.fecha_publicacion }}</p>
         </h6>
@@ -15,7 +13,5 @@
     </div>
     
 </div>
-</td></tr>
 {% endfor %}
-</table>
 {% endblock %}

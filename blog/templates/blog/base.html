@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Blog de Erick</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
@@ -20,12 +22,12 @@
                 {% if user.is_authenticated %}
                 <a class="nav-link" href="{% url 'post_new' %}" class="top-menu">Agregar Post</a>
                 <a class="nav-link" href="{% url 'post_draft_list' %}" class="top-menu">Borradores</a>
-                <p class="top-menu"><h4 class="nav-item"> Bienvenido {{ user.username }} </h4><small>(<a href="l 'logout' %}">Cerrar Sesión</a>)</small>>
+                <p class="top-menu"><h4 class="nav-item"> Bienvenido {{ user.username }} </h4><small><a href="{% url 'logout' %}">Cerrar Sesión</a></small>
                 </p>
                 {% else %}
-                <a href="{% url 'login' %}" class="top-menu">Iniciar Sesión</a>
+                <a href="{% url 'login' %}" class="top-menu">iniciar sesión </a>
                 {% endif %}
-            </ul>>
+            </ul>
           </div>
     </nav>
 

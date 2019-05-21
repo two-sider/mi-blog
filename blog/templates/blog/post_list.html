@@ -2,16 +2,16 @@
 
 {% block content %}
 {% for post in posts %}
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h1 class="card-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }}</a></h1>
-        <h6 class="card-subtitle mb-2 text-muted">
-            <p>published: {{ post.fecha_publicacion }}</p>
-        </h6>
-        <p class="card-text">{{ post.texto|linebreaksbr }}</p>
-        <a href="{% url 'post_detail' pk=post.pk %}" class="card-link">Comments: {{ post.approved_comments.count }}</a>
-    </div>
-    
-</div>
+<div class="jumbotron jumbotron-fluid" style="background: #a7a5a5c0;">
+        <div class="container">
+          <h1 class="display-4"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }}</a></h1>
+          <p class="lead"><h6>
+                <p>published: {{ post.fecha_publicacion }}</p>
+            </h6>
+            <p class="card-text">{{ post.texto|linebreaksbr }}</p>
+            <a href="{% url 'post_detail' pk=post.pk %}" class="card-link">Comments: {{ post.approved_comments.count }}</a></p>
+        </div>
+      </div>
+
 {% endfor %}
 {% endblock %}

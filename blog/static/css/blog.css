@@ -4,6 +4,7 @@ body {
     background-position: center center;
     background-attachment: fixed;
     color: #000000;
+    text-align: center;
 }
 
 h1 a {
